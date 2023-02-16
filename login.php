@@ -11,7 +11,7 @@
         } else {
             $username = $_POST['username'];
             $password = $_POST['password'];
-            $login = $pdo->query("SELECT * FROM users WHERE username='$username'");
+            $login = conn->query("SELECT * FROM users WHERE username='$username'");
             $login->execute();
             $data = $login->fetch(PDO::FETCH_ASSOC);
             if($login->rowCount() > 0){
