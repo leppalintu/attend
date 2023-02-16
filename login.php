@@ -5,23 +5,35 @@
     require_once 'db/conn.php'; 
     
     //If data was submitted via a form POST request, then...
-    if($_SERVER['REQUEST_METHOD'] == '$_POST['submit']'){
-        $username = strtolower(trim($_POST['username']));
-        $password = $_POST['password'];
-        $new_password = md5($password.$username);
+    if(isset($_POST['submit'])) {
+#        if($_POST['email'] == '' OR $_POST['password'] == '' ) {
+        if($_POST['username'] == '' OR $_POST['password'] == '' ) {
+            echo "Midagi puudu";
+        } else {
+#            $email = $_POST['email'];
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+#            $login = $conn->query("SELECT * FROM users WHERE email='$email'");
+            $login = $conn->query("SELECT * FROM users WHERE username='$username'");
+            $login->execute();
+            $data = $login->fetch(PDO::FETCH_ASSOC);
+            if($login->rowCount() > 0){
+#                echo $login->rowCount();
+                if(password_verify($password, $data['password'])) {
+                    echo "logitud sisse";
+                    $_SESSION['username'] = $username;
+                    $_SESSION['userid'] = $result['id'];
+                    header("Location: viewrecords.php");
+                } else {
+                    echo "email or parool vale";
+                }
+            } else {
+                echo "email or parool vale";
+            }
 
-        $result = $user->getUser($username,$new_password);
-        if(!$result){
-            echo '<div class="alert alert-danger">Username or Password is incorrect! Please try again. </div>';
-        }else{
-            $_SESSION['username'] = $username;
-            $_SESSION['userid'] = $result['id'];
-            header("Location: viewrecords.php");
         }
-
     }
 ?>
-
 
 <h1 class="text-center"><?php echo $title ?> </h1>
    
