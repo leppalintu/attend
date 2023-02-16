@@ -27,8 +27,6 @@
 	} else {
 		echo "peetis db connect: err";
 	}
-?>
-
     require_once 'crud.php';
     require_once 'user.php';
     $crud = new crud($pdo);
