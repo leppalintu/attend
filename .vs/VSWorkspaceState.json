@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\auther",
+    "\\auther\\includes",
+    "\\db"
   ],
-  "SelectedNode": "\\index.php",
+  "SelectedNode": "\\auther\\register.php",
   "PreviewInSolutionExplorer": false
 }
