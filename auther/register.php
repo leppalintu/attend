@@ -11,10 +11,9 @@
             $password = $_POST['password'];
 #            $insert = $conn->prepare("INSERT INTO users (email,username, password)
             $insert = $conn->prepare("INSERT INTO users (username, password)
-#            VALUES (:email, :username, :password)");
             VALUES (:username, :password)");
             $insert->execute([
-              
+#               ':email' => $email,
                 ':username' => $username,
                 ':password' => password_hash($password, PASSWORD_DEFAULT),
             ]);
@@ -31,7 +30,7 @@
 <!--    <div class="form-floating">
       <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
       <label for="floatingInput">Email address</label>
-    </div> -->
+    </div>-->
 
     <div class="form-floating">
       <input name="username" type="text" class="form-control" id="floatingInput" placeholder="username">
