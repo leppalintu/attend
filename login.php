@@ -21,9 +21,6 @@
 #                echo $login->rowCount();
                 if(password_verify($password, $data['password'])) {
                     echo "logitud sisse";
-                    $_SESSION['username'] = $username;
-                    $_SESSION['userid'] = $result['id'];
-                    header("Location: viewrecords.php");
                 } else {
                     echo "email or parool vale";
                 }
