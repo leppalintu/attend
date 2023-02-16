@@ -2,7 +2,8 @@
     $title = 'User Login'; 
 
     require_once 'includes/header.php'; 
-    require_once 'db/conn.php'; 
+    require_once 'db/conn.php';
+    require_once 'auther/config.php';
     
     if(isset($_POST['submit'])) {
         if($_POST['username'] == '' OR $_POST['password'] == '' ) {
