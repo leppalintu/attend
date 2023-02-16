@@ -12,4 +12,6 @@
 		throw new PDOException($e->getMessage());
 	}
 	require_once 'user.php';
+	 $user = new user($pdo);
+     $user->insertUser("admin","password");
 ?>
