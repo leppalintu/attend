@@ -5,7 +5,7 @@
     require_once 'db/conn.php'; 
     
     //If data was submitted via a form POST request, then...
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if($_SERVER['REQUEST_METHOD'] == '$_POST['submit']'){
         $username = strtolower(trim($_POST['username']));
         $password = $_POST['password'];
         $new_password = md5($password.$username);
@@ -21,6 +21,7 @@
 
     }
 ?>
+
 
 <h1 class="text-center"><?php echo $title ?> </h1>
    
