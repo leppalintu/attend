@@ -22,6 +22,12 @@
     } catch(PDOException $e) {
         throw new PDOException($e->getMessage());
     }
+    if($pdo == true){
+		echo "connect to db works";
+	} else {
+		echo "peetis db connect: err";
+	}
+?>
 
     require_once 'crud.php';
     require_once 'user.php';
