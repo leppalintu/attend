@@ -11,10 +11,10 @@
             $password = $_POST['password'];
 #            $insert = $conn->prepare("INSERT INTO users (email,username, password)
             $insert = $conn->prepare("INSERT INTO users (username, password)
-            VALUES (:email, :username, :password)");
-#            VALUES (:username, :password)");
+#            VALUES (:email, :username, :password)");
+            VALUES (:username, :password)");
             $insert->execute([
-#               ':email' => $email,
+              
                 ':username' => $username,
                 ':password' => password_hash($password, PASSWORD_DEFAULT),
             ]);
