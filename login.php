@@ -34,11 +34,11 @@
 
 <h1 class="text-center"><?php echo $title ?> </h1>
    
-    <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
+    <form method="POST" action="login.php">
         <table class="table table-sm">
             <tr>
                 <td><label for="username">Username: * </label></td>
-                <td><input type="text" name="username" class="form-control" id="username" >
+                <td><input type="text" name="username" class="form-control" id="username">
                 </td>
             </tr>
             <tr>
