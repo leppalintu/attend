@@ -2,16 +2,19 @@
 <?php require "config.php"; ?>
 <?php
     if(isset($_POST['submit'])){
-        if($_POST['email'] == '' OR $_POST['username'] == '' OR $_POST['password'] == '' ) {
+#        if($_POST['email'] == '' OR $_POST['username'] == '' OR $_POST['password'] == '' ) {
+        if($_POST['username'] == '' OR $_POST['password'] == '' ) {
             echo "midagi puudu"; 
         } else {
-            $email = $_POST['email'];
+#            $email = $_POST['email'];
             $username = $_POST['username'];
             $password = $_POST['password'];
-            $insert = $conn->prepare("INSERT INTO users (email,username, password)
+#            $insert = $conn->prepare("INSERT INTO users (email,username, password)
+            $insert = $conn->prepare("INSERT INTO users (username, password)
             VALUES (:email, :username, :password)");
+#            VALUES (:username, :password)");
             $insert->execute([
-                ':email' => $email,
+#               ':email' => $email,
                 ':username' => $username,
                 ':password' => password_hash($password, PASSWORD_DEFAULT),
             ]);
@@ -25,10 +28,10 @@
    
     <h1 class="h3 mt-5 fw-normal text-center">Please Register</h1>
 
-    <div class="form-floating">
+<!--    <div class="form-floating">
       <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
       <label for="floatingInput">Email address</label>
-    </div>
+    </div> -->
 
     <div class="form-floating">
       <input name="username" type="text" class="form-control" id="floatingInput" placeholder="username">
